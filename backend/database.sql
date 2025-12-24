@@ -1,0 +1,27 @@
+CREATE DATABASE IF NOT EXISTS smart_fitness_db;
+
+USE smart_fitness_db;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  age INT,
+  gender VARCHAR(50),
+  height DECIMAL(5, 2),
+  weight DECIMAL(5, 2),
+  goal VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS workout_meal_plans (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  day VARCHAR(50) NOT NULL,
+  exercises JSON,
+  meals JSON,
+  completed_status JSON,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
