@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span>Smart Fitness Planner</span>
+  <span class="spacer"></span>
+  <nav *ngIf="authService.isLoggedIn()">
+    <a mat-button routerLink="/profile">Profile</a>
+    <a mat-button routerLink="/workouts">Workouts</a>
+    <a mat-button routerLink="/meals">Meals</a>
+    <a mat-button routerLink="/progress">Progress</a>
+    <button mat-button (click)="logout()">Logout</button>
+  </nav>
+  <nav *ngIf="!authService.isLoggedIn()">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </nav>
+</mat-toolbar>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+

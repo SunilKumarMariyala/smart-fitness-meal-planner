@@ -1,0 +1,9 @@
+<mat-card *ngIf="user">
+  <mat-card-title>Progress Tracker</mat-card-title>
+  <mat-card-content>
+    <p><strong>Current Weight:</strong> {{ user.weight }} kg</p>
+    <p><strong>Fitness Goal:</strong> {{ user.goal }}</p>
+    <!-- Charts would go here in a full implementation -->
+  </mat-card-content>
+</mat-card>
+

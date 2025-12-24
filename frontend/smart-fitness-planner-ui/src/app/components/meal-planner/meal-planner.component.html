@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>Daily Meal Plan</mat-card-title>
+  <mat-card-content>
+    <div *ngFor="let plan of mealPlans">
+      <h3>{{ plan.day }}</h3>
+      <mat-list>
+        <mat-list-item>Breakfast: {{ plan.meals.breakfast.name }} ({{ plan.meals.breakfast.calories }} kcal)</mat-list-item>
+        <mat-list-item>Lunch: {{ plan.meals.lunch.name }} ({{ plan.meals.lunch.calories }} kcal)</mat-list-item>
+        <mat-list-item>Dinner: {{ plan.meals.dinner.name }} ({{ plan.meals.dinner.calories }} kcal)</mat-list-item>
+        <mat-list-item>Snack: {{ plan.meals.snack.name }} ({{ plan.meals.snack.calories }} kcal)</mat-list-item>
+      </mat-list>
+      <p><strong>Total Calories: {{ getTotalCalories(plan) }} kcal</strong></p>
+    </div>
+  </mat-card-content>
+</mat-card>
+
